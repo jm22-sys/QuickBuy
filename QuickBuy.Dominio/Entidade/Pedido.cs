@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QuickBuy.Dominio.Entidade
 {
-    public abstract class Pedido
+    public abstract class Pedido : Entidade
     {
         public int id { get; set; }
         public DateTime DataPedido { get; set; }

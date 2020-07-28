@@ -4,7 +4,7 @@ using System.Text;
 
 namespace QuickBuy.Dominio.Enumerados
 {
-    public enum TipoFormaPagmentoEnum
+    public enum TipoFormaPagmentoEnum : Entidade
     {
         NaoDefinido = 0,
         Boleto = 1,

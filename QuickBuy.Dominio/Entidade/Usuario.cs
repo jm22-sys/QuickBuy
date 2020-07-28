@@ -4,7 +4,7 @@ using System.Text;
 
 namespace QuickBuy.Dominio.Entidade
 {
-    pucblic abstract class Usuario
+    pucblic abstract class Usuario : Entidade
     {
         public int id { get; set; }
         public int Email { get; set; }
