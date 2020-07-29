@@ -4,7 +4,7 @@ using System.Text;
 
 namespace QuickBuy.Dominio.Entidade
 {
-    pucblic abstract class Usuario : Entidade
+    public abstract class Usuario : Entidade
     {
         public int id { get; set; }
         public int Email { get; set; }
@@ -15,7 +15,7 @@ namespace QuickBuy.Dominio.Entidade
         /// <summary>
         /// um usuario pode ter um ou mais pedidos
         /// </summary>
-        public ICollection<Pedido> Pedidos { get; set }
+        public ICollection<Pedido> Pedidos { get; set; }
 
     }
 }

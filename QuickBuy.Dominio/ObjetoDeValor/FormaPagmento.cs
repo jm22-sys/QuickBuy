@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QuickBuy.Dominio.ObjetoDeValor
 {
-    public class FormaPagmento : Entidade
+    public class FormaPagmento 
     {
         public int id { get; set; }
         public string Nome { get; set; }
