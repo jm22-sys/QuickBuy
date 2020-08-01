@@ -3,16 +3,22 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using QuickBuy.Repositorio.Repositorios.Contexto;
 
 namespace QuickBuy.Web
 {
     public class Startup
     {
+        
+
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            var Biulder = new ConfigurationBuilder();
+            Biulder.AddJsonFile("config.Json", optional: false, reloadOnChange: true ) ;
+            Configuration = Biulder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -22,6 +28,10 @@ namespace QuickBuy.Web
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            var ConnectionString = Configuration.GetConnectionString("MySqlConnection");
+            services.AddDbContext<QuickBuyContexto>
+                                                    (Option => Option.UseMySql(ConnectionString, 
+                                                                        m => m.MigrationsAssembly("QuickBuy.Repositorio")));
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
